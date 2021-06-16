@@ -7,7 +7,46 @@ html {
     scroll-behavior: smooth;
 }
 
-.background {
+.header__background > h1 {
+    font-weight:normal;
+    color:white;
+    position:relative;
+}
+
+nav > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Raleway', sans-serif
+}
+
+nav > ul > li {
+    display: inline;
+    float: right;
+    padding: 25px;
+}
+
+nav > ul > li > a {
+    text-decoration:none;
+}
+
+nav > ul > li > a:link {
+    color:white;
+}
+
+nav > ul > li >a:visited{
+    color:white;
+}
+
+ul > li:hover {
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+
+.header__background {
     background-image: url(Images/Northern_Lights_5.jpg);
     height: 75vh;
     max-width:100%;
@@ -16,53 +55,16 @@ html {
     background-size: cover;
     text-align:center;
 }
-.background > p {
+.header__background > p {
     color:silver;
 }
 
-h1 {
-    color:white;
-    position:relative;
-}
-
-.navbar {
+.header__navbar {
     width: 100%;
     height: auto;
     overflow: hidden;
     margin: 0;
     padding: 0;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    color: white;
-    font-family: 'Raleway', sans-serif
-}
-
-ul > li {
-    display: inline;
-    float: right;
-    padding: 25px;
-}
-
-ul > li > a {
-    text-decoration:none;
-}
-
-a:link {
-    color:white;
-}
-
-a:visited{
-    color:white;
-}
-
-ul > li:hover {
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
 }
 .about {
     width:100%;
@@ -78,6 +80,64 @@ ul > li:hover {
     margin:0;
 }
 
+.about__section{
+    padding-top:30px;
+    display:flex;
+    flex-direction:row;
+    align-content:center;
+    justify-content:center;
+}
+
+.about__avatar {
+    display:flex;
+    width:25%;
+    justify-content:center;
+    align-items:center;
+}
+
+.avatar{
+    width:50%;
+    border-radius:50%;
+    filter:grayscale(100%);
+    -webkit-filter: grayscale(100);
+}
+
+.about__blurb {
+    width: 25%;
+    display: flex;
+    align-items: center; 
+    justify-content:center;
+
+}
+
+.about__showcase {
+    width:50%;
+    display: flex;
+    flex-direction:column;
+    align-items: center; 
+    justify-content:center;
+}
+
+.about__item {
+    border-radius:12px;
+    background-color:#109cb4;
+    display:flex;
+    align-items: center; 
+    justify-content:left;
+    width:90%;
+    height:25%;
+    margin:5px;
+    flex-wrap:wrap;
+}
+
+.about__item--logo {
+    display:flex;
+    padding-right:10px;
+    justify-content:center;
+    align-items:center;
+    width:10%;
+}
+
 .skills {
     width:100%;
     background-image:linear-gradient(to bottom, #32558F,  #211c57);
@@ -88,10 +148,19 @@ ul > li:hover {
     padding:0;
 }
 
-.skills-flex{
+.skills--flex{
     display:flex;
     flex-direction:row;
     flex-wrap:wrap;
+}
+
+.skills_tech {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    width:20%;
+    padding-bottom:20px;
 }
 
 .skills> h2 {
@@ -106,24 +175,153 @@ ul > li:hover {
     padding-bottom:30px;
 }
 
-.projects {
+.skills__tech {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    width:20%;
+    padding-bottom:20px;
+}
+
+.skills__icon {
+    display:flex;
+    width:20%;
+    justify-content:center;
+    align-items:center;
+}
+
+.skills__icon:hover{
+    cursor: pointer;
+}
+.skills__icon:hover + .skills__names {
+    visibility:visible;
+}
+
+.skills__names {
+    display:flex;
+    visibility: hidden;
+    flex-direction:row;
+    justify-content:space-around;
+    align-content:center;
+    width:100%;
+}
+
+.portfolio {
     background-image:linear-gradient(to bottom, #211c57, #152c50, #0a1030);
     width:100%;
     height:100%;
     text-align:center;
     color:white;
 }
-.projects > h2 {
+.portfolio > h2 {
     margin:0px;
     padding:30px;
 }
 
-.projects > p {
+.portfolio > p {
     padding-bottom:30px;
     margin-bottom:0px;
 }
 
-.contact {
+.portfolio__grid {
+    display:grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 1fr 1fr;
+    justify-content:space-around;
+    align-content:space-around;
+    grid-gap:25px;
+    margin-left:15px;
+    margin-right:15px;
+    padding-bottom:20px;  
+}
+
+.portfolio__item {
+    display:flex;
+    flex-direction:column;
+    background-color: #2b4e86;
+    flex-wrap:wrap;
+    border-radius:12px;
+    perspective: 1000px;
+}
+
+.portfolio__item--front{
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.portfolio__item--back {
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;   
+    width:100%;
+}
+
+.portfolio__item--fron > h3, h5 {
+    margin:0;
+    padding-bottom:10px;
+}
+
+.portfolio__item:hover{
+    cursor:pointer;
+    filter:brightness(0.9);
+}
+
+.portfolio__item.flipCard .flipper {
+    transform: rotateY(180deg);
+  }
+  
+.flipper {
+    transition: 0.8s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+i.fab {
+    color:#0EF3C5;
+    padding-bottom:0px;
+}
+
+.portfolio-image {
+    width:320px;
+    height:220px;
+    justify-content:center;
+    align-items:center;
+    padding-top:20px;
+    border-radius:30px;
+    padding-bottom:20px;
+}
+
+.portfolio__logos {
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-evenly;
+    padding-top: 10px;
+    padding-bottom:30px;
+}
+
+.portfolio__description {
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+}
+
+  .contact {
     margin-top:0;
     background-image:linear-gradient(to bottom, #0a1030,#3e4e80);
     width:100%;
@@ -137,148 +335,9 @@ ul > li:hover {
     padding:30px;
 }
 
-.project-grid {
-    display:grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: 1fr 1fr;
-    justify-content:space-around;
-    align-content:space-around;
-    grid-gap:25px;
-    margin-left:15px;
-    margin-right:15px;
-    padding-bottom:20px;
-    
-}
-
-i.fab {
-    color:#0EF3C5;
-    padding-bottom:0px;
-}
-
-.skills_tech {
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    width:20%;
-    padding-bottom:20px;
-}
-
-.skills_icon {
-    display:flex;
-    width:20%;
-    justify-content:center;
-    align-items:center;
-}
-
-.skills_icon:hover{
-    cursor: pointer;
-}
-.skills_icon:hover + .skills_tech_names {
-    visibility:visible;
-}
-
-.skills_tech_names {
-    display:flex;
-    visibility: hidden;
-    flex-direction:row;
-    justify-content:space-around;
-    align-content:center;
-    width:100%;
-}
-
-.about-container{
+.contact__links {
     padding-top:30px;
     display:flex;
-    flex-direction:row;
-    align-content:center;
-    justify-content:center;
-}
-
-.about-avatar {
-    display:flex;
-    width:25%;
-    justify-content:center;
-    align-items:center;
-}
-
-.avatar{
-    width:50%;
-    border-radius:50%;
-    filter:grayscale(100%);
-    -webkit-filter: grayscale(100);
-}
-
-.about-blurb {
-    width: 25%;
-    display: flex;
-    align-items: center; 
-    justify-content:center;
-
-}
-
-.about-sell {
-    width:50%;
-    display: flex;
-    flex-direction:column;
-    align-items: center; 
-    justify-content:center;
-}
-
-.sell-item {
-    border-radius:12px;
-    background-color:#109cb4;
-    display:flex;
-    align-items: center; 
-    justify-content:left;
-    width:90%;
-    height:25%;
-    margin:5px;
-    flex-wrap:wrap;
-}
-
-.sell-item-logo {
-    display:flex;
-    padding-right:10px;
-    justify-content:center;
-    align-items:center;
-    width:10%;
-}
-
-.portfolio-item {
-    display:flex;
-    flex-direction:column;
-    background-color: #2b4774;
-    flex-wrap:wrap;
-    border-radius:12px;
-
-}
-.portfolio-item > h3, h5 {
-    margin:0;
-    padding-bottom:10px;
-}
-
-.portfolio-image {
-    width:280px;
-    height:220px;
-    justify-content:center;
-    align-items:center;
-    padding-top:20px;
-}
-
-.portfolio-logos {
-    display:flex;
-    flex-direction:row;
-    flex-wrap:wrap;
-    align-items:center;
-    justify-content:center;
-    padding-bottom:30px;
-}
-
-.portfolio-description {
-    width:100%;
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    justify-content:center;
+    justify-content:space-around;
+    padding-bottom:50px;
 }
