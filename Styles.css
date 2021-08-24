@@ -138,6 +138,10 @@ ul > li:hover {
     width:10%;
 }
 
+.about__item--logo > i.fas {
+    color:white;
+}
+
 .skills {
     width:100%;
     background-image:linear-gradient(to bottom, #32558F,  #211c57);
@@ -226,10 +230,9 @@ ul > li:hover {
 
 .portfolio__grid {
     display:grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: 1fr 1fr;
-    justify-content:space-around;
-    align-content:space-around;
+    grid-template-columns: auto;
+    justify-content:center;
+    align-items:center;
     grid-gap:25px;
     margin-left:15px;
     margin-right:15px;
@@ -237,23 +240,39 @@ ul > li:hover {
 }
 
 .portfolio__item {
-    display:flex;
-    flex-direction:column;
     background-color: #2b4e86;
     flex-wrap:wrap;
     border-radius:12px;
     perspective: 1000px;
+    padding:10px;
+    width:75%;
+    margin:auto;
+}
+
+i.fas {
+    color:#0EF3C5;
+    padding-bottom:0px;
 }
 
 .portfolio__item--front{
     display:flex;
     flex-direction:column;
+    text-align:center;
+    justify-content: center;
+    width:100%;
     flex-wrap:wrap;
     backface-visibility: hidden;
     top: 0;
     left: 0;
     z-index: 2;
     transform: rotateY(0deg);
+}
+
+.portfolio__codesnippet{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding-bottom:40px;
 }
 
 .portfolio__item--back {
@@ -283,7 +302,7 @@ ul > li:hover {
   }
   
 .flipper {
-    transition: 0.8s;
+    transition: 0.6s;
     transform-style: preserve-3d;
     position: relative;
 }
@@ -294,14 +313,20 @@ i.fab {
 }
 
 .portfolio-image {
-    width:320px;
-    height:220px;
+    width:80%;
     justify-content:center;
     align-items:center;
     padding-top:20px;
-    border-radius:30px;
+    border-radius:15px;
     padding-bottom:20px;
+    margin-bottom:15px;
 }
+
+.portfolio-image-alt {
+    max-width:500px;
+    max-height:300px;
+}
+
 
 .portfolio__logos {
     display:flex;
@@ -340,4 +365,73 @@ i.fab {
     display:flex;
     justify-content:space-around;
     padding-bottom:50px;
+}
+
+@media only screen and (max-width: 1450px){
+
+    .about__section {
+        display:flex;
+        flex-direction:column;
+        width:100%;
+    }
+    .about__avatar {
+        width:100%;
+    }
+
+    .avatar{
+        width:200px;
+    }
+
+    .about__blurb {
+        width:100%;
+        text-align:center;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .about__blurb > p {
+        padding-left:20px;
+        padding-right:20px;
+        width:80%;
+    }
+
+    .about__showcase {
+        display:flex;
+        width:100%;
+        text-align:center;
+    }
+
+    .about__item--logo {
+        padding-top:10px;
+        display:flex;
+        width:100%;
+    }
+
+    .about__item--description{
+        width:100%;
+        padding:5px;
+    }
+
+    .about__item {
+        display:flex;
+        width:50%;
+        text-align:center;
+    }
+
+    .portfolio__grid{
+        grid-template-columns: auto;
+    }
+
+    .portfolio__description{
+        width:100%;
+    }
+
+    .portfolio_item {
+        width:50%;
+    }
+
+    .portfolio__description > p {
+        width:50%;
+    }
+    
 }
